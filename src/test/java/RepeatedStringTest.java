@@ -9,10 +9,11 @@ import static org.junit.Assert.assertEquals;
 public class RepeatedStringTest {
 
     @Test
-    @Parameters({"abcac, 10, 4", "a, 1000000, 1000000"})
-    public void getRepeatedA(String s, int n, long expected) {
+    @Parameters({"abcac, 10, 4",
+                 "a, 1000000000000, 1000000000000"})
+    public void getRepeatedA(String s, long n, long expected) {
 
-        int result = RepeatedString.repeatedString(s, n);
+        long result = RepeatedString.repeatedString(s, n);
 
         assertEquals(result, expected);
     }

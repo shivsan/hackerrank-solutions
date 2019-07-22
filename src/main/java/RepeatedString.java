@@ -6,14 +6,15 @@ import java.util.Scanner;
 public class RepeatedString {
 
     // Complete the repeatedString function below.
-    static int repeatedString(String s, long n) {
-        int a = (int) s.chars().filter(c -> c == 'a').count();
-        final int noOfFullWords = (int) (n / s.length());
+    static long repeatedString(String s, long n) {
+        long a = s.chars().filter(c -> c == 'a').count();
+        final long noOfFullWords = n / s.length();
         return noOfFullWords * a +
-                (int) s.substring(0, (int) (n - noOfFullWords * s.length()))
+                 s.substring(0, (int) (n - noOfFullWords * s.length()))
                         .chars()
                         .filter(c -> c == 'a')
                         .count();
+
     }
 
     private static final Scanner scanner = new Scanner(System.in);
