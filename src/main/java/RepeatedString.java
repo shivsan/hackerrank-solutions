@@ -10,7 +10,7 @@ public class RepeatedString {
         long a = s.chars().filter(c -> c == 'a').count();
         final long noOfFullWords = n / s.length();
         return noOfFullWords * a +
-                 s.substring(0, (int) (n - noOfFullWords * s.length()))
+                s.substring(0, (int) (n - noOfFullWords * s.length()))
                         .chars()
                         .filter(c -> c == 'a')
                         .count();
@@ -36,4 +36,5 @@ public class RepeatedString {
 
         scanner.close();
     }
+
 }
