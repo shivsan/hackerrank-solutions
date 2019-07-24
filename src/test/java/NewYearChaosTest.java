@@ -7,7 +7,9 @@ import org.junit.runners.JUnit4;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 @RunWith(JUnit4.class)
 public class NewYearChaosTest {
@@ -26,7 +28,6 @@ public class NewYearChaosTest {
         NewYearChaos.minimumBribes(q);
 
         assertEquals("3", outContent.toString());
-
     }
 
     @Test
@@ -35,7 +36,7 @@ public class NewYearChaosTest {
 
         NewYearChaos.minimumBribes(q);
 
-        assertEquals("7", outContent.toString());
+        assertEquals("Too chaotic", outContent.toString());
     }
 
     @Test
@@ -44,7 +45,27 @@ public class NewYearChaosTest {
 
         NewYearChaos.minimumBribes(q);
 
-        assertEquals("Too chaotic", outContent.toString());
+        assertEquals("7", outContent.toString());
+    }
+
+    @Test
+    public void shouldDoInsertionSortBetweenIndices() {
+        int[] q = {1, 2, 5, 3, 7, 8, 6, 4};
+
+        NewYearChaos.insertion(q, 1, 4);
+
+        int[] expected = {1, 7, 2, 5, 3, 8, 6, 4};
+
+        assertThat(q, is(expected));
+    }
+
+    @Test
+    public void shouldFindNum() {
+        int[] q = {1, 2, 5, 3, 7, 8, 6, 4};
+
+        final int num = NewYearChaos.findNum(q, 4);
+
+        assertEquals(7, num);
     }
 
     @After
