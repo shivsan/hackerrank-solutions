@@ -68,6 +68,35 @@ public class NewYearChaosTest {
         assertEquals(7, num);
     }
 
+
+    @Test
+    public void shouldGetNumberOfBribesForSimplerSum() {
+        int[] q = {2, 1, 5, 3, 4};
+
+        NewYearChaos.minimumBribesSimpler(q);
+
+        assertEquals("3", outContent.toString());
+    }
+
+    @Test
+    public void shouldThrowTooChaoticMessageForSimpler() {
+        int[] q = {2, 5, 1, 3, 4};
+
+        NewYearChaos.minimumBribesSimpler(q);
+
+        assertEquals("Too chaotic\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldComputeProperOutputForDoubleBribesForSimpler() {
+        int[] q = {1, 2, 5, 3, 7, 8, 6, 4};
+
+        NewYearChaos.minimumBribesSimpler(q);
+
+        assertEquals("7", outContent.toString());
+    }
+
+
     @After
     public void restoreStreams() {
         System.setOut(originalOut);

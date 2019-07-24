@@ -28,6 +28,30 @@ public class NewYearChaos {
         System.out.print(totalNoOfBribes);
     }
 
+    static void minimumBribesSimpler(int[] q) {
+
+        int totalNoOfBribes = 0;
+
+        for (int i = q.length - 1; i >= 0; i--) {
+            int bribes = 0;
+
+            for (int j = i + 1; j < q.length; j++) {
+                if (q[i] > q[j])
+                    bribes++;
+            }
+
+            if(bribes < 3)
+                totalNoOfBribes+=bribes;
+            else
+            {
+                System.out.println("Too chaotic");
+                return;
+            }
+        }
+
+        System.out.print(totalNoOfBribes);
+    }
+
     public static void insertion(int[] q, int i, int j) {
         int num = q[j];
 
