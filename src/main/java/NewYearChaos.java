@@ -38,15 +38,15 @@ public class NewYearChaos {
             for (int j = i + 1; j < q.length; j++) {
                 if (q[i] > q[j])
                     bribes++;
+
+                if(bribes > 2)
+                {
+                    System.out.println("Too chaotic");
+                    return;
+                }
             }
 
-            if(bribes < 3)
-                totalNoOfBribes+=bribes;
-            else
-            {
-                System.out.println("Too chaotic");
-                return;
-            }
+            totalNoOfBribes += bribes;
         }
 
         System.out.print(totalNoOfBribes);
