@@ -16,29 +16,6 @@ public class CoinChange {
         return noOfWays;
     }
 
-    private void findNoOfWays(int[] coinDenominationCoefficients, int currentIndex, int change) {
-        if (currentIndex >= coinDenominations.length)
-            return;
-
-        if (change == 0) {
-            successfulResults.add(coinDenominationCoefficients.clone());
-            noOfWays++;
-            return;
-        }
-
-        if (change > 0) {
-            coinDenominationCoefficients[currentIndex]++;
-            change -= coinDenominations[currentIndex];
-            findNoOfWays(coinDenominationCoefficients, currentIndex, change);
-        }
-
-        if (coinDenominationCoefficients[currentIndex] > 0) {
-            coinDenominationCoefficients[currentIndex]--;
-            change += coinDenominations[currentIndex];
-            findNoOfWays(coinDenominationCoefficients, currentIndex + 1, change);
-        }
-    }
-
     private void findNoOfWays1(int[] coinDenominationCoefficients, int currentIndex, int change) {
         if (currentIndex >= coinDenominations.length)
             return;
