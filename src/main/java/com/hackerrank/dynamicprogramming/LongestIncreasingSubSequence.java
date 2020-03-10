@@ -8,7 +8,7 @@ public class LongestIncreasingSubSequence {
     public int get(int[] sequence) {
         max = new int[sequence.length];
         max[0] = 1;
-        return findMax(sequence, sequence.length - 1);
+        return maxOfArray(IntStream.range(0, sequence.length).map(i -> findMax(sequence, i)));
     }
 
     private int findMax(int[] arr, int i) {
