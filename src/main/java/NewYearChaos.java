@@ -1,8 +1,12 @@
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class NewYearChaos {
+    private static HashMap<Integer, Integer> hs = new HashMap<>();
+
     static void minimumBribes(int[] q) {
+        hs = new HashMap<>();
 
         int totalNoOfBribes = 0;
         int[] q1 = IntStream.range(1, q.length + 1).toArray();
@@ -22,7 +26,7 @@ public class NewYearChaos {
 
             totalNoOfBribes += bribe;
 
-            insertion(q1, actualIndex, foundIndex);
+//            insertion(q1, actualRank, oldRank);
         }
 
         System.out.print(totalNoOfBribes);
@@ -39,8 +43,7 @@ public class NewYearChaos {
                 if (q[i] > q[j])
                     bribes++;
 
-                if(bribes > 2)
-                {
+                if (bribes > 2) {
                     System.out.println("Too chaotic");
                     return;
                 }
