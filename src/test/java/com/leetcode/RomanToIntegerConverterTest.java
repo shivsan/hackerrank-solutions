@@ -3,6 +3,7 @@ package com.leetcode;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import static com.leetcode.RomanToIntegerConverter.solution;
 import static org.junit.Assert.*;
@@ -26,7 +27,7 @@ public class RomanToIntegerConverterTest {
         wordList.add("dog");
         wordList.add("cog");
 
-        int solution = new RomanToIntegerConverter().solution("hit", "cog", wordList);
+        int solution = new RomanToIntegerConverter().solution("hit", "cog", wordList.toArray(new String[0]));
 
         System.out.println(solution);
     }
