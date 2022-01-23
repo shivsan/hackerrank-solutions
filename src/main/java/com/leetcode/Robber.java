@@ -5,7 +5,6 @@ import java.util.Arrays;
 // https://leetcode.com/problems/house-robber/
 public class Robber {
     public int rob(int[] nums) {
-        int[] max = new int[nums.length];
 
         if (nums.length == 0)
             return 0;
@@ -18,15 +17,23 @@ public class Robber {
 
         if (nums.length == 3)
             return Integer.max(nums[0] + nums[2], nums[1]);
+        int maxHouse = 0;
+        int maxHouseMinusOne = 0;
+        int maxHouseMinusTwo = 0;
+        int maxHouseMinusThree = 0;
 
-        max[0] = nums[0];
-        max[1] = nums[1];
-        max[2] = Integer.max(nums[0] + nums[2], nums[1]);
+        maxHouseMinusThree = nums[0];
+        maxHouseMinusTwo = nums[1];
+        maxHouseMinusOne = Integer.max(maxHouseMinusThree + nums[2], maxHouseMinusTwo);
+        maxHouse = nums[3] + Integer.max(maxHouseMinusThree, maxHouseMinusTwo);
 
-        for(int i = 3; i < nums.length; i++) {
-            max[i] = nums[i] + Integer.max(max[i-2], max[i-3]);
+        for(int i = 4; i < nums.length; i++) {
+            maxHouseMinusThree = maxHouseMinusTwo;
+            maxHouseMinusTwo = maxHouseMinusOne;
+            maxHouseMinusOne = maxHouse;
+            maxHouse = nums[i] + Integer.max(maxHouseMinusThree, maxHouseMinusTwo);
         }
 
-        return Arrays.stream(max).max().getAsInt();
+        return Integer.max(maxHouse, maxHouseMinusOne);
     }
 }
