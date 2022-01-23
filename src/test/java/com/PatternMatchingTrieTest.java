@@ -46,6 +46,29 @@ public class PatternMatchingTrieTest {
     }
 
     @Test
+    public void addDuplicateWords() {
+        var word = "pat";
+        PatternMatchingTrie patternMatchingTrie = new PatternMatchingTrie();
+        patternMatchingTrie.add(word);
+        patternMatchingTrie.add(word);
+
+        assertTrue(patternMatchingTrie.search(word));
+    }
+
+    @Test
+    public void test1() {
+        PatternMatchingTrie patternMatchingTrie = new PatternMatchingTrie();
+        patternMatchingTrie.add("a");
+        patternMatchingTrie.add("a");
+        assertTrue(patternMatchingTrie.search("."));
+        assertTrue(patternMatchingTrie.search("a"));
+        assertFalse(patternMatchingTrie.search("aa"));
+        assertTrue(patternMatchingTrie.search("a"));
+        assertFalse(patternMatchingTrie.search(".a"));
+        assertFalse(patternMatchingTrie.search("a."));
+    }
+
+    @Test
     public void shouldAddOneLetterWord() {
         var word = "p";
         PatternMatchingTrie patternMatchingTrie = new PatternMatchingTrie();

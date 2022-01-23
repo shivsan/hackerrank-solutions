@@ -18,7 +18,7 @@ public class TrieMap {
 
     public void add(String key) {
         if (key.length() == 0) {
-            nodes.putIfAbsent(endLine, null);
+            nodes.putIfAbsent(endLine, new TrieMap());
             return;
         }
 

@@ -19,7 +19,7 @@ public class PatternMatchingTrie {
 
     public void add(String key) {
         if (key.length() == 0) {
-            nodes.putIfAbsent(endLine, null);
+            nodes.putIfAbsent(endLine, new PatternMatchingTrie());
             return;
         }
 
