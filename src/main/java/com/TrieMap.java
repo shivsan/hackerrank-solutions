@@ -35,6 +35,10 @@ public class TrieMap {
         if (key.length() == 0)
             return nodes.containsKey(endLine);
 
-        return nodes.get(key.charAt(0)).search(key.substring(1));
+        var child = nodes.get(key.charAt(0));
+        if (child == null)
+            return false;
+
+        return child.search(key.substring(1));
     }
 }

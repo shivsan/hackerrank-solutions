@@ -46,6 +46,17 @@ public class TrieMapTest {
     }
 
     @Test
+    public void shouldNotPass() {
+        var word1 = "pat";
+        var word2 = "patter";
+        TrieMap trieMap = new TrieMap();
+        trieMap.add(word1);
+        trieMap.add(word2);
+
+        assertFalse(trieMap.search("pattern"));
+    }
+
+    @Test
     public void shouldAddOneLetterWord() {
         var word = "p";
         TrieMap trieMap = new TrieMap();
