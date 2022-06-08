@@ -59,6 +59,8 @@ public class ClimbingStairs {
         if (memo.containsKey(highestStep))
             return memo.get(highestStep);
 
-        return noOfWaysDPTopDown(highestStep - 1) + noOfWaysDPTopDown(highestStep - 2);
+        int result = noOfWaysDPTopDown(highestStep - 1) + noOfWaysDPTopDown(highestStep - 2);
+        memo.put(highestStep, result);
+        return result;
     }
 }
